@@ -6,7 +6,7 @@
   transform: scale(calc(1 + var(--k, 0) * .04)); filter: brightness(calc(1 - var(--k, 0) * .12)); transition: transform 1.8s var(--ease), filter 1.8s ease; }
 .intro-tiles { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(7, 1fr); }
 .intro-tiles i { background: var(--dark); transition: background .22s; }
-.intro-tiles i.on { background: rgba(11, 12, 15, .35); box-shadow: inset 0 0 0 1px #8fa0ff; }
+.intro-tiles i.on { background: rgba(11, 12, 15, .35); box-shadow: inset 0 0 0 .5px rgba(255, 255, 255, .75); }   /* 파랑 1px → 흰색 반 픽셀(사용자 11-15 밤 "너무 굵어 보여 · 흰색으로 · 조금 더 얇게") */
 .intro-tiles i.done { background: transparent; }
 .intro-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 34vh 7vw 11vh; color: #fff;
   background: linear-gradient(rgba(11, 12, 15, 0), rgba(11, 12, 15, .82)); text-shadow: 0 2px 26px rgba(0, 0, 0, .55);
