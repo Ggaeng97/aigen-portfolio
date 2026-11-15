@@ -44,3 +44,5 @@
 .st-sum > .st-more-row { position: relative; }
 .st-sum > .st-more-row:not(:has(> .st-open-pill))::after { position: absolute; left: 0; right: 0; top: 50%; }
 
+/* 마무리 문단: 문장이 두 줄로 넘어갈 때 끝 낱말만 남지 않게(“… 수준에 / 닿고 싶습니다.” 11-15 밤) */
+.next-card p { text-wrap: pretty; }
