@@ -57,3 +57,7 @@ body.in-top .bar { opacity: 0; pointer-events: none; }
 .st-map-k { position: relative; font-size: clamp(23px, 2.1vw, 30px); line-height: 1.4; letter-spacing: -.025em; }
 .st-map-k .st-no { position: absolute; right: 100%; top: 0; margin-right: 16px; font-size: 1.15em; line-height: inherit; }
 @media (max-width: 1340px) { .st-map-k .st-no { position: static; display: block; margin: 0 0 4px; font-size: .9em; } }
+
+/* 좁은 화면의 '다섯 번의 처음' 지도: 다섯 칸이 한 줄에 눌려 낱말마다 줄이 바뀌던 것을 두 칸씩으로
+   (w-story.css 가 원래 뜻한 좁은 화면 배치 — 뒤에 온 '다섯 칸' 규칙에 덮여 있었음, 11-15 밤 화면 확인 중 발견) */
+@media (max-width: 900px) { .st-intro .st-map { grid-template-columns: 1fr 1fr; } }
