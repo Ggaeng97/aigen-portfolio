@@ -11,7 +11,31 @@
   .cstep.side .tg[data-tg=qs] { height: 260px; }
   .cstep.side .tg[data-tg=ad] { height: 240px; }
   .cstep.side .tg[data-tg=frame] { height: 330px; }
-  .cstep.side .cs-pics.stack > figure img { aspect-ratio: 3 / 1; }
   .cstep.side .cs-pics.one .cs-pic.tall img { height: 270px; }   /* NG 화면 한 장: 비율 그대로 줄임 */
   .cstep.side .cs-pics.ways6 .way-pics img { aspect-ratio: 1; }   /* 여섯 칸: 세로로 긴 칸 → 정사각 */
 }
+
+/* 사례 카드 밑에 상자 없이 떨어져 있던 원본 · 우리 판 영상 네 개를 카드 상자 안 아래 줄로(사용자 11-15 밤 "박스 없이 영상만 있어
+   위 묶음과 다른 건지 쓰다 만 건지 모르겠다") — 카드의 두 칸 전체 폭을 씀 */
+.cstep.side > .eb-grid { grid-column: 1 / -1; margin-top: 30px; }
+/* '제가 고른 쪽' 표: 줄마다 오른쪽 결과 칸 너비가 달라 가운데 칸 시작이 줄마다 어긋나던 것(사용자 "세로 정렬이 안 돼 있어")
+   → 세 줄이 같은 칸을 나눠 씀(subgrid). 끝 글자 하나만 넘어가지 않게 pretty. */
+.way-picks .ai, .way-picks .me { text-wrap: balance; }   /* 두 줄이면 길이를 고르게(“직접 / 재 봄” 막음) */
+@media (min-width: 901px) {
+  .way-picks { grid-template-columns: 92px minmax(0, 1fr) 22px minmax(0, 1.25fr) max-content; column-gap: 12px; }
+  .way-picks li { grid-column: 1 / -1; grid-template-columns: subgrid; }
+  .way-picks em { text-align: right; }
+}
+
+/* 단계 머리의 '자세히 보기'를 요약(글 · 그림) 아래 따로 한 줄로(사용자 11-15 밤 "1번 내용에 자세히 보기가 포함된 것 같다 ·
+   아랫줄에 분리 · 좌측으로 빼든 잘 보이게 · 본문과 분리가 안 돼 눈에 안 띈다"). 왼쪽 끝은 번호(01)에 맞추고(more_row.js),
+   오른쪽으로 얇은 선을 이어 본문과 갈라지는 '펼치는 줄'로 보이게 */
+.st-sum > .st-more-row { grid-column: 1 / -1; display: flex; align-items: center; gap: 22px; margin-top: 8px; }
+.st-sum > .st-more-row::after { content: ""; flex: 1; height: 1px; background: rgba(17, 18, 23, .13); }
+
+/* 위아래로 쌓던 전후 사진(프리미어 → EDITRA · 의자 · 천장 · 제단 · 1차 → 12차)을 우파 카드처럼 가로로(사용자 11-15 밤 "세로 정렬
+   말고 가로 정렬 · 2 · 3번처럼 이미지와 박스 위아래를 좁힌 방법으로 통일") — 쌓기 규칙(.stack)을 빼면 기본이 '원래 → 고친 뒤' 가로,
+   사진은 4:3 으로 잘라 높이를 줄임. 제단은 측정 그림 셋(왼쪽) → 결과(오른쪽) */
+.cstep.side .cs-pics.duo { gap: 10px; }
+.cstep.side .cs-pics.duo .cs-pic img { aspect-ratio: 4 / 3; }
+.cstep.side .cs-pics.duo > .cs-m { flex: 1.3 1 0; margin: 0; gap: 6px; }
