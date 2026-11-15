@@ -61,3 +61,10 @@ body.in-top .bar { opacity: 0; pointer-events: none; }
 /* 좁은 화면의 '다섯 번의 처음' 지도: 다섯 칸이 한 줄에 눌려 낱말마다 줄이 바뀌던 것을 두 칸씩으로
    (w-story.css 가 원래 뜻한 좁은 화면 배치 — 뒤에 온 '다섯 칸' 규칙에 덮여 있었음, 11-15 밤 화면 확인 중 발견) */
 @media (max-width: 900px) { .st-intro .st-map { grid-template-columns: 1fr 1fr; } }
+
+/* '도전의 연속' 지도: 카드가 일곱(06 AIGEN 도전 · 07 웹 포트폴리오 추가 — 사용자 11-15 밤 "도전의 연속으로 바꾸고 … 아이젠 도전 · 웹 포트폴리오")이라
+   넓은 화면은 네 칸씩 두 줄, 줄 첫 카드 앞 화살표는 숨김. 좁은 화면은 위 규칙대로 두 칸씩(마지막 카드는 한 줄 차지) */
+@media (min-width: 901px) {
+  .st-intro .st-map { grid-template-columns: repeat(4, 1fr); }
+  .st-intro .st-map li:nth-child(4n+1) a::before { display: none; }
+}
