@@ -1,0 +1,17 @@
+/* 카드 군살 빼기(사용자 11-15 밤 "글이 너무 많아 보이고 · 줄바꿈이 애매하고 · 우파처럼 그림 위아래를 안 줄여 여백이 많아").
+   - 글: 줄 끝에 낱말 하나만 매달리지 않게(지원하는 브라우저에서), 문장 사이 줄바꿈은 글에 <br> 로 넣음.
+   - 제목: 쉼표 뒤를 한 덩어리로(title_wrap.js 가 .t2 로 감쌈) — 한 줄에 다 안 들어가면 덩어리째 다음 줄로.
+   - 그림: 움직이는 도식 칸 높이를 안의 내용에 맞게(넓은 화면만, 줄여도 겹치지 않는 값을 같은 순간끼리 찍어 비교해 고름),
+           위아래로 쌓은 전후 사진 두 장은 조금 더 납작하게. */
+.cs-story, .st-lede, .sec-lede, .app-lede, .hg-text p { text-wrap: pretty; }
+.cs-head h3 .t2, .st-title .st-h .t2 { display: inline-block; }
+.cs-head h3:not(:has(.t2)) { text-wrap: balance; }   /* 쉼표 없는 제목만 고르게(쉼표 묶음과 같이 쓰면 묶음 앞이 엉뚱하게 끊김 — 휴대폰 11-15) */
+@media (min-width: 901px) {
+  .cstep.side .tg[data-tg=asr9], .cstep.side .tg[data-tg=order], .cstep.side .tg[data-tg=breath], .cstep.side .tg[data-tg=cases] { height: 250px; }
+  .cstep.side .tg[data-tg=qs] { height: 260px; }
+  .cstep.side .tg[data-tg=ad] { height: 240px; }
+  .cstep.side .tg[data-tg=frame] { height: 330px; }
+  .cstep.side .cs-pics.stack > figure img { aspect-ratio: 3 / 1; }
+  .cstep.side .cs-pics.one .cs-pic.tall img { height: 270px; }   /* NG 화면 한 장: 비율 그대로 줄임 */
+  .cstep.side .cs-pics.ways6 .way-pics img { aspect-ratio: 1; }   /* 여섯 칸: 세로로 긴 칸 → 정사각 */
+}
