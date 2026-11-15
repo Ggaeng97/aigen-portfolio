@@ -68,3 +68,6 @@ body.in-top .bar { opacity: 0; pointer-events: none; }
   .st-intro .st-map { grid-template-columns: repeat(4, 1fr); }
   .st-intro .st-map li:nth-child(4n+1) a::before { display: none; }
 }
+
+/* 카드가 여덟(08 처음 마주할 현장 — 사용자 11-15 밤 "8번은 현장이잖아")이라 좁은 화면에서도 마지막 카드가 한 줄을 다 차지하지 않고 07 옆에 놓이게 */
+@media (max-width: 900px) { .st-intro .st-map li:last-child { grid-column: auto; } }
